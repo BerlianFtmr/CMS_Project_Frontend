@@ -2,42 +2,90 @@
 
 import styles from "./CartPage.module.css";
 import Link from "next/link";
-
-type CartItem = {
-  id: number;
-  title: string;
-  author: string;
-  price: number;
-  cover: string;
-  qty: number;
-};
+import { useCart } from "@/context/CartContext";
 
 export default function CartPage() {
-  const cartItems: CartItem[] = []; 
+  const {
+    cartItems,
+    increaseQty,
+    decreaseQty,
+    removeItem,
+    clearCart,
+  } = useCart();
+
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.qty,
     0
   );
 
+  const isEmpty = cartItems.length === 0;
+
   return (
     <div className={styles.container}>
       {/* LEFT */}
       <div className={styles.left}>
-        <div className={styles.iconWrapper}>
-          <span className={`material-symbols-outlined ${styles.bigIcon}`}>
-            CART
-          </span>
-        </div>
+        {isEmpty ? (
+          <>
+            <div className={styles.iconWrapper}>
+              <span className={`material-symbols-outlined ${styles.bigIcon}`}>
+                menu_book
+              </span>
+            </div>
 
-        <h1 className={styles.title}>Your cart is feeling a bit light</h1>
-        <p className={styles.subtitle}>
-          Explore our library and find your next great story.
-        </p>
+            <h1 className={styles.title}>Your cart is feeling a bit light</h1>
+            <p className={styles.subtitle}>
+              Explore our library and find your next great story.
+            </p>
 
-        <Link href="/" className={styles.browseBtn}>
-          <span>Start Browsing</span>
-          <span className="material-symbols-outlined">auto_stories</span>
-        </Link>
+            <Link href="/" className={styles.browseBtn}>
+              <span>Start Browsing</span>
+              <span className="material-symbols-outlined">auto_stories</span>
+            </Link>
+          </>
+        ) : (
+          cartItems.map((item) => (
+            <div key={item.id} className={styles.cartItem}>
+              <div
+                className={styles.bookCover}
+                style={{ backgroundImage: `url(${item.cover})` }}
+              />
+
+              <div className={styles.itemInfo}>
+                <p className={styles.bookTitle}>{item.title}</p>
+                <p className={styles.bookMeta}>
+                  {item.author} • Rp{item.price.toLocaleString()}
+                </p>
+
+                <div className={styles.qtyControl}>
+                  <button
+                    className={styles.qtyBtn}
+                    onClick={() => decreaseQty(item.id)}
+                  >
+                    −
+                  </button>
+                  <span className={styles.qty}>{item.qty}</span>
+                  <button
+                    className={styles.qtyBtn}
+                    onClick={() => increaseQty(item.id)}
+                  >
+                    +
+                  </button>
+                </div>
+
+                <button
+                  className={styles.removeBtn}
+                  onClick={() => removeItem(item.id)}
+                >
+                  Remove
+                </button>
+              </div>
+
+              <div className={styles.itemTotal}>
+                Rp{(item.price * item.qty).toLocaleString()}
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {/* RIGHT */}
@@ -47,7 +95,7 @@ export default function CartPage() {
 
           <div className={styles.summaryRow}>
             <span>Subtotal</span>
-            <span>${subtotal.toFixed(2)}</span>
+            <span>Rp{subtotal.toLocaleString()}</span>
           </div>
 
           <div className={styles.summaryRow}>
@@ -59,32 +107,18 @@ export default function CartPage() {
 
           <div className={styles.totalRow}>
             <span>Total</span>
-            <strong>${subtotal.toFixed(2)}</strong>
+            <strong>Rp{subtotal.toLocaleString()}</strong>
           </div>
 
-          <p className={styles.note}>Add items to proceed to checkout</p>
-        </div>
-
-        <div className={styles.recommend}>
-          <h4>You might also like</h4>
-
-          <div className={styles.recommendItem}>
-  <div
-    className={styles.bookCover}
-    style={{
-      backgroundImage: "url('/images/koko_guntur.jpeg')" ,
-    }}
-  />
-  <div>
-    <p className={styles.bookTitle}>GUNTUR THE LEGEND OF UNU</p>
-    <p className={styles.bookMeta}>UCUP NINUNINU • Rp300.000</p>
-  </div>
-  <span className={`material-symbols-outlined ${styles.addIcon}`}>
-    add_circle
-  </span>
-</div>
-          </div>
+          {!isEmpty && (
+            <button
+              className={styles.clearCartBtn}
+              onClick={clearCart}
+            >
+            </button>
+          )}
         </div>
       </div>
+    </div>
   );
 }

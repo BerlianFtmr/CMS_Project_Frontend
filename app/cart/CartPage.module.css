@@ -169,3 +169,98 @@
   color: #c084fc;
   font-size: 1.5rem;
 }
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.bookCover {
+  width: 80px;
+  height: 110px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.bookTitle {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.bookMeta {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.qtyControl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.qtyBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #c084fc;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.qtyBtn:hover {
+  background: #c084fc;
+}
+
+.qty {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.removeBtn {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: #d11a2a;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+.removeBtn:hover {
+  text-decoration: underline;
+}
+
+.itemTotal {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.clearCartBtn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.clearCartBtn:hover {
+  opacity: 0.9;
+}
