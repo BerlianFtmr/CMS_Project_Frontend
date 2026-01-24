@@ -1,0 +1,517 @@
+.authReset * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.authBody {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* Container utama dengan overflow hidden */
+.authContainer {
+  width: 100%;
+  max-width: 1200px;
+  height: 700px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Panel Gambar */
+.imagePanel {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  position: absolute;
+  top: 0;
+  left: 50%; /* Default untuk login: gambar di kanan */
+  transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+/* Posisi register: gambar pindah ke kiri */
+.imagePanel.register-position {
+  left: 0;
+}
+
+/* Panel Form */
+.formPanel {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  position: absolute;
+  top: 0;
+  left: 0; /* Default untuk login: form di kiri */
+  transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+/* Posisi register: form pindah ke kanan */
+.formPanel.register-position {
+  left: 50%;
+}
+
+/* Form Container - RATA TENGAH */
+.formContainer {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animasi untuk konten form */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.formContainer > * {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.imageContent {
+  text-align: center;
+  max-width: 80%;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.imageTitle {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.imageText {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.featuresList {
+  list-style-type: none;
+  text-align: center;
+  margin-top: 30px;
+  padding: 0;
+}
+
+.featureItem {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  gap: 10px;
+}
+
+.featureIcon {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Logo dan Judul - RATA TENGAH */
+.authLogo {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #4285f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.authLogoIcon {
+  margin-right: 10px;
+  font-size: 32px;
+}
+
+.authTitle {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.authSubtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.5;
+  width: 100%;
+}
+
+/* Form Groups */
+.formGroup {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.inputWithIcon {
+  position: relative;
+  width: 100%;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  z-index: 1;
+}
+
+.formInput {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s;
+  font-family: inherit;
+  background-color: white;
+}
+
+.formInput:focus {
+  border-color: #4285f4;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+  outline: none;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  font-size: 16px;
+  padding: 5px;
+  z-index: 2;
+}
+
+.passwordToggle:hover {
+  color: #666;
+}
+
+/* Button - Menggunakan warna dari BookSection */
+.authButton {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to right, #7c3aed, #ec4899); /* Warna BookSection: purple-600 ke pink-500 */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  margin-top: 10px;
+}
+
+.authButton:hover:not(:disabled) {
+  background: linear-gradient(to right, #6d28d9, #db2777); /* Warna lebih gelap saat hover */
+  box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+}
+
+.authButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Toggle Container - Menggunakan warna BookSection */
+.toggleContainer {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  color: #666;
+  font-size: 14px;
+  width: 100%;
+}
+
+.toggleText {
+  color: #666;
+  font-size: 14px;
+}
+
+.toggleLink {
+  color: #7c3aed; /* Warna BookSection: purple-600 */
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.toggleLink:hover {
+  color: #5b21b6; /* Warna BookSection: purple-800 */
+  text-decoration: underline;
+}
+
+/* Tombol Alternatif dengan Styling BookSection */
+.alternativeButton {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  color: #111827; /* Warna BookSection: gray-900 */
+  border: 2px solid #111827; /* Warna BookSection: gray-900 */
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.alternativeButton:hover {
+  background: #111827; /* Warna BookSection: gray-900 */
+  color: white;
+}
+
+/* Tombol BookSection Style - Warna hijau untuk Add to Cart */
+.booksectionButton {
+  width: 100%;
+  padding: 15px;
+  background: #16a34a; /* Warna BookSection: green-600 */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.booksectionButton:hover {
+  background: #15803d; /* Warna BookSection: green-700 */
+  box-shadow: 0 5px 15px rgba(22, 163, 74, 0.3);
+}
+
+/* Tombol BookSection Style - Warna border gray untuk Read Preview */
+.booksectionOutlineButton {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  color: #111827; /* Warna BookSection: gray-900 */
+  border: 2px solid #111827; /* Warna BookSection: gray-900 */
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  margin-top: 10px;
+}
+
+.booksectionOutlineButton:hover {
+  background: #111827; /* Warna BookSection: gray-900 */
+  color: white;
+}
+
+/* Form - Tidak ada display none/block karena kita gunakan conditional rendering */
+.authForm {
+  width: 100%;
+}
+
+/* Error Message */
+.errorMessage {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 5px;
+  display: block;
+  text-align: left;
+}
+
+.inputError {
+  border-color: #e74c3c !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
+}
+
+/* Loading animation */
+.loadingSpinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsif */
+@media (max-width: 1024px) {
+  .authContainer {
+    height: 650px;
+    max-width: 900px;
+  }
+  
+  .imageTitle {
+    font-size: 32px;
+  }
+  
+  .authTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .authContainer {
+    height: auto;
+    max-width: 500px;
+    flex-direction: column;
+  }
+
+  .imagePanel,
+  .formPanel {
+    width: 100%;
+    position: relative;
+    height: 300px;
+    transform: none !important;
+  }
+
+  .imagePanel {
+    order: 1;
+    height: 250px;
+    padding: 30px 20px;
+    left: 0 !important;
+  }
+
+  .formPanel {
+    order: 2;
+    height: auto;
+    padding: 30px 20px;
+    min-height: 500px;
+    left: 0 !important;
+  }
+
+  .imageTitle {
+    font-size: 28px;
+  }
+
+  .imageText {
+    font-size: 16px;
+  }
+
+  .featuresList {
+    display: none;
+  }
+
+  .authTitle {
+    font-size: 24px;
+  }
+
+  .authLogo {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .authBody {
+    padding: 10px;
+  }
+
+  .authContainer {
+    margin: 10px;
+    border-radius: 15px;
+  }
+
+  .formPanel {
+    padding: 25px 15px;
+  }
+
+  .imagePanel {
+    padding: 20px 15px;
+  }
+
+  .toggleContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .authLogo {
+    font-size: 22px;
+  }
+  
+  .authTitle {
+    font-size: 22px;
+  }
+}
