@@ -111,11 +111,21 @@ export default function CartPage() {
           </div>
 
           {!isEmpty && (
-            <button
-              className={styles.clearCartBtn}
-              onClick={clearCart}
-            >
-            </button>
+            <div className={styles.actionButtons}>
+              <button
+                className={styles.buyBtn}
+                onClick={() => alert("Belum dibikin ajg")}
+              >
+                Buy
+              </button>
+
+              <button
+                className={styles.clearCartBtn}
+                onClick={clearCart}
+              >
+                Clear All
+              </button>
+            </div>
           )}
         </div>
       </div>

@@ -20,50 +20,42 @@ type CartContextType = {
   clearCart: () => void;
 };
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const addToCart = (item: CartItem) => {
     setCartItems((prev) => {
-      const existing = prev.find((i) => i.id === item.id);
-
-      if (existing) {
+      const exist = prev.find((i) => i.id === item.id);
+      if (exist) {
         return prev.map((i) =>
           i.id === item.id ? { ...i, qty: i.qty + item.qty } : i
         );
       }
-
       return [...prev, item];
     });
   };
 
   const increaseQty = (id: number) => {
     setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, qty: item.qty + 1 } : item
-      )
+      prev.map((i) => (i.id === id ? { ...i, qty: i.qty + 1 } : i))
     );
   };
 
   const decreaseQty = (id: number) => {
     setCartItems((prev) =>
       prev
-        .map((item) =>
-          item.id === id ? { ...item, qty: item.qty - 1 } : item
-        )
-        .filter((item) => item.qty > 0)
+        .map((i) => (i.id === id ? { ...i, qty: i.qty - 1 } : i))
+        .filter((i) => i.qty > 0)
     );
   };
 
   const removeItem = (id: number) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+    setCartItems((prev) => prev.filter((i) => i.id !== id));
   };
 
-  const clearCart = () => {
-    setCartItems([]);
-  };
+  const clearCart = () => setCartItems([]);
 
   return (
     <CartContext.Provider
@@ -82,9 +74,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
 }
 
 export function useCart() {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error("useCart must be used within CartProvider");
+  const ctx = useContext(CartContext);
+  if (!ctx) {
+    throw new Error("useCart must be used inside CartProvider");
   }
-  return context;
+  return ctx;
 }
