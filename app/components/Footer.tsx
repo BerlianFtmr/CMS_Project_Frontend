@@ -14,8 +14,8 @@ export default function Footer() {
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">About We</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-           Kami bersemangat untuk menghadirkan buku-buku terbaik dunia kepada para pembaca di mana pun.
-           Misi kami adalah menciptakan komunitas pecinta buku dan menyediakan pengalaman membaca yang luar biasa.
+           We are excited to bring the world's best books to readers everywhere.
+           Our mission is to create a community of book lovers and provide an exceptional reading experience.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export default function Footer() {
 
         <div className="text-center pt-8 border-t border-gray-800">
           <p className="text-gray-400">
-            © {new Date().getFullYear()} BOOKSHOP ED. All rights reserved.
+            © {new Date().getFullYear()} SiBuku ED. All rights reserved.
           </p>
         </div>
       </div>

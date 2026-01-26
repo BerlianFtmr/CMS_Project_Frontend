@@ -13,7 +13,6 @@ export default function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  // Check login status saat komponen dimount
   useEffect(() => {
     const checkLoginStatus = () => {
       const token = localStorage.getItem("auth_token");
@@ -30,7 +29,6 @@ export default function Navbar() {
 
     checkLoginStatus();
 
-    // Listen untuk perubahan di localStorage (jika ada login/logout dari halaman lain)
     window.addEventListener("storage", checkLoginStatus);
 
     return () => {
@@ -83,7 +81,7 @@ export default function Navbar() {
               <span className="text-white font-bold text-sm">B</span>
             </div>
             <h1 className="text-2xl font-bold text-gray-800">
-              BOOKSHOP <span className="text-purple-600">ED</span>
+              SiBuku <span className="text-purple-600">ED</span>
             </h1>
           </div>
 
