@@ -1,0 +1,287 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem;
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  gap: 4rem;
+  background: #000;
+  min-height: 100vh;
+  color: white;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.iconWrapper {
+  margin-bottom: 3rem;
+}
+
+.bigIcon {
+  font-size: 160px;
+  color: rgba(217, 179, 237, 0.85);
+  filter: drop-shadow(0 0 24px rgba(137, 51, 199, 0.6));
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e9d5ff;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.125rem;
+  max-width: 420px;
+  margin-bottom: 3rem;
+}
+
+.browseBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #7c3aed;
+  padding: 1.25rem 3rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.browseBtn:hover {
+  opacity: 0.85;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.summary {
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  position: sticky;
+  top: 7rem;
+  box-shadow: 0 25px 50px rgba(124, 58, 237, 0.45);
+}
+
+.summary h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  margin: 2rem 0;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.totalRow span {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #f5d0fe;
+}
+
+.totalRow strong {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.note {
+  font-size: 0.625rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+}
+
+.recommend h4 {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.recommendItem {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: center;
+  transition: 0.3s;
+}
+
+.recommendItem:hover {
+  border-color: rgba(147, 51, 234, 0.6);
+}
+
+.bookCover {
+  width: 48px;
+  height: 64px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.25rem;
+}
+
+.bookTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.bookMeta {
+  font-size: 0.625rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.addIcon {
+  margin-left: auto;
+  color: #c084fc;
+  font-size: 1.5rem;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.bookCover {
+  width: 80px;
+  height: 110px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.bookTitle {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.bookMeta {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.qtyControl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.qtyBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #c084fc;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.qtyBtn:hover {
+  background: #c084fc;
+}
+
+.qty {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.removeBtn {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: #d11a2a;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+.removeBtn:hover {
+  text-decoration: underline;
+}
+
+.itemTotal {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.clearCartBtn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.clearCartBtn:hover {
+  opacity: 0.9;
+}
+
+.actionButtons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.buyBtn {
+  flex: 1;
+  background: linear-gradient(135deg, #000, #222);
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buyBtn:hover {
+  opacity: 0.9;
+}

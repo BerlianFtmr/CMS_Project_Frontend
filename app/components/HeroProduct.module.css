@@ -1,0 +1,63 @@
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 80px;
+  background: #d8cfc0;
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.imageWrapper img {
+  width: 260px;
+  transform: rotate(-8deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 800;
+}
+
+.author {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.desc {
+  margin-top: 16px;
+}
+
+.price {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+}
+
+.primary {
+  background: #3b2f2a;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.secondary {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

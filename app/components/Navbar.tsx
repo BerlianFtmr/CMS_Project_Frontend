@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo/Title */}
+          {/* Logo / Title */}
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg"></div>
             <h1 className="text-2xl font-bold text-gray-800">
@@ -20,7 +22,6 @@ export default function Navbar() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -45,14 +46,20 @@ export default function Navbar() {
 
           {/* User Actions */}
           <div className="flex items-center space-x-4">
-            <button className="text-gray-600 hover:text-purple-600">
+            {/* CART → MASUK KE /cart */}
+            <Link
+              href="/cart"
+              className="text-gray-600 hover:text-purple-600 flex items-center"
+            >
               <span className="hidden md:inline">Cart</span>
               <span className="md:hidden">🛒</span>
-            </button>
+            </Link>
+
             <button className="text-gray-600 hover:text-purple-600">
               <span className="hidden md:inline">Account</span>
               <span className="md:hidden">👤</span>
             </button>
+
             <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-shadow">
               Login
             </button>

@@ -1,0 +1,47 @@
+.productContainer {
+  padding: 24px;
+  background: #f2f2f2;
+}
+
+.productHeading {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.productForm {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.productForm input {
+  padding: 6px;
+}
+
+.productForm button {
+  padding: 6px 12px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.productCard {
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.productCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
