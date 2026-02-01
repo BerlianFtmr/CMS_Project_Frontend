@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./HeroProduct.module.css";
+import styles from "./Module/HeroProduct.module.css";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
 

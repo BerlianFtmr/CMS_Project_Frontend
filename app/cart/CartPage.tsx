@@ -28,7 +28,7 @@ export default function CartPage() {
           <>
             <div className={styles.iconWrapper}>
               <span className={`material-symbols-outlined ${styles.bigIcon}`}>
-                menu_book
+                My Book
               </span>
             </div>
 
@@ -39,7 +39,7 @@ export default function CartPage() {
 
             <Link href="/" className={styles.browseBtn}>
               <span>Start Browsing</span>
-              <span className="material-symbols-outlined">auto_stories</span>
+              <span className="material-symbols-outlined">your's stories</span>
             </Link>
           </>
         ) : (

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import "./new_product/module.css";
+import "./Module/newproduct.module.css";
 
 type Product = {
   title: string;
